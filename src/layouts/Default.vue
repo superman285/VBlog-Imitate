@@ -13,7 +13,7 @@
       <p style="font-size: 18px">欢迎来到superman285的个人博客</p>
       <div class="btn-wrap">
         <button style="cursor:pointer;" @click="window.open('https://github.com/superman285')">GitHub主页</button>
-        <button style="cursor:pointer;">博客源码</button>
+        <button style="cursor:pointer;" @click="window.open('https://github.com/superman285/VBlog-Imitate')">博客源码</button>
       </div>
     </header>
       <main>
