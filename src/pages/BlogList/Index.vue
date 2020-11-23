@@ -5,7 +5,13 @@
 			&nbsp;
 			<button @click="searchBlog">搜索</button>
 		</div>
-		<div class="blog-card" v-for="blog in blogs" :key="blog.id" @click="goToBlog(blog.id)">
+
+		<!--或换g-link 用template套 -->
+		<!--<template v-for="blog in blogs">
+			<g-link tag="div" :to="`/blog/${blog.id}`"></g-link>
+		</template>-->
+
+		<div v-for="blog in blogs" :key="blog.id" class="blog-card" @click="goToBlog(blog.id)">
 			<div class="title">
 				<h2>{{ blog.title }}</h2>
 				<span @click="shareLink($event,blog.id)">分享链接</span>
@@ -81,22 +87,22 @@
 			goToBlog(id) {
 
 				const GoToBlog = (this.blogs.filter(blog=> +blog.id === +id) || [])[0]
-				// this.$router.push(`/blog-list/detail/${id}`)
-				this.$router.push({
-					name: 'blogdetail',
+				this.$router.push(`/blog/${id}`)
+				/*this.$router.push({
+					// name: 'blogdetail',
 					params: {
 						blog: GoToBlog,
-						// id: (GoToBlog || {}).id
-					},
-					query: {
 						id: (GoToBlog || {}).id
-					}
-				})
+					},
+					/!*query: {
+						id: (GoToBlog || {}).id
+					}*!/
+				})*/
 			},
 			shareLink(ev, id) {
-				console.log('分享链接:', `${window.location.href}/detail?id=${id}`)
+				process.browser && console.log('分享链接:', `${window.location.href}/detail?id=${id}`)
 				ev.stopPropagation();
-				window.alert('分享链接见控制台!')
+				process.browser && window.alert('分享链接见控制台!')
 			},
 		},
 		created() {

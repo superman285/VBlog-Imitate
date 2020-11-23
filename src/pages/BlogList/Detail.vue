@@ -12,6 +12,19 @@
 	</Layout>
 </template>
 
+<page-query>
+	query ($id: String) {
+	blog: strapiBloglist(id: $id) {
+	id
+	title
+	content
+	created_at
+	updated_at
+	description
+	}
+	}
+</page-query>
+
 <script>
 import dayjs from 'dayjs'
 import MarkdownIt from 'markdown-it'
@@ -29,7 +42,7 @@ export default {
 	methods: {
 		shareLink() {
 			console.log('分享链接:',location.href)
-			window.alert('分享链接见控制台!')
+
 		},
 		showMore() {
 			console.log('更多')
@@ -37,16 +50,17 @@ export default {
 		}
 	},
 	created() {
+		/*this.blog = this.$page.blog
   	this.blog = this.$route.params.blog
-		this.blogContent = md.render(this.blog.content)
+		this.blogContent = md.render(this.blog.content)*/
 	},
-	beforeRouteEnter(to, from, next) {
+	/*beforeRouteEnter(to, from, next) {
 		if (from.path.includes('blog-list')) {
 			next()
 		} else {
 			next({path: '/blog-list/'})
 		}
-	}
+	}*/
 }
 </script>
 

@@ -78,33 +78,26 @@ export default {
 	},
 	methods: {
 		async goToProject(repo,id) {
-			console.log('repo',repo)
-
-			let readme = {content:''}
-			try {
-				({data:readme} = await getReadme(repo))
-			} catch (err) {
-				console.log('此repo没有readme...')
-			}
-
 			this.$router.push({
-				name: 'project',
-				params: {
+				// name: 'project',
+				path: 'project',
+				/*params: {
 					name: repo,
 					project: readme
-				},
+				},*/
 				query: {
-					id
+					name: repo,
+					// id
 				}
 			})
 		},
 		goToGithub(repo) {
-			window.open(`https://github.com/superman285/${repo}`)
+			process.browser && window.open(`https://github.com/superman285/${repo}`)
 		},
 		shareLink(ev, id) {
-			console.log('分享链接:', `${window.location.href}?id=${id}`)
+			process.browser && console.log('分享链接:', `${window.location.href}?id=${id}`)
 			ev.stopPropagation();
-			window.alert('分享链接见控制台!')
+			process.browser && window.alert('分享链接见控制台!')
 		},
 		searchRepo() {
 

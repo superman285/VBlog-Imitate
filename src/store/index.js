@@ -1,9 +1,10 @@
-const activeTabFromLocal = window.localStorage.getItem('activeTab')
+let activeTabFromLocal = 'trends'
+process && process.browser && (activeTabFromLocal = window.localStorage.getItem('activeTab'))
 
 const store = {
 	state: {
 		count: 0,
-		activeTab: activeTabFromLocal || 'trends'
+		activeTab: activeTabFromLocal
 	},
 	mutations: {
 		increment (state) {
@@ -15,7 +16,7 @@ const store = {
 	}
 }
 
-window.addEventListener('beforeunload', e => window.localStorage.setItem('activeTab',store.state.activeTab))
+process && process.browser && window.addEventListener('beforeunload', e => window.localStorage.setItem('activeTab',store.state.activeTab))
 
 
 export default store

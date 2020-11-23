@@ -4,8 +4,8 @@ const c3 = () => import(/* webpackChunkName: "page--src--pages--social-follower-
 const c4 = () => import(/* webpackChunkName: "page--src--pages--social-following-vue" */ "/Users/superman285/Programmer/LFED/Vue/SSG/VBlog-Imitate/src/pages/SocialFollowing.vue")
 const c5 = () => import(/* webpackChunkName: "page--src--pages--opensource-vue" */ "/Users/superman285/Programmer/LFED/Vue/SSG/VBlog-Imitate/src/pages/Opensource.vue")
 const c6 = () => import(/* webpackChunkName: "page--src--pages--blog-list--index-vue" */ "/Users/superman285/Programmer/LFED/Vue/SSG/VBlog-Imitate/src/pages/BlogList/Index.vue")
-const c7 = () => import(/* webpackChunkName: "page--src--pages--trends-vue" */ "/Users/superman285/Programmer/LFED/Vue/SSG/VBlog-Imitate/src/pages/Trends.vue")
-const c8 = () => import(/* webpackChunkName: "page--src--pages--readme-vue" */ "/Users/superman285/Programmer/LFED/Vue/SSG/VBlog-Imitate/src/pages/Readme.vue")
+const c7 = () => import(/* webpackChunkName: "page--src--templates--blog-vue" */ "/Users/superman285/Programmer/LFED/Vue/SSG/VBlog-Imitate/src/templates/Blog.vue")
+const c8 = () => import(/* webpackChunkName: "page--src--pages--trends-vue" */ "/Users/superman285/Programmer/LFED/Vue/SSG/VBlog-Imitate/src/pages/Trends.vue")
 const c9 = () => import(/* webpackChunkName: "page--src--pages--project-vue" */ "/Users/superman285/Programmer/LFED/Vue/SSG/VBlog-Imitate/src/pages/Project.vue")
 const c10 = () => import(/* webpackChunkName: "page--src--pages--helper-vue" */ "/Users/superman285/Programmer/LFED/Vue/SSG/VBlog-Imitate/src/pages/Helper.vue")
 const c11 = () => import(/* webpackChunkName: "page--src--pages--about-vue" */ "/Users/superman285/Programmer/LFED/Vue/SSG/VBlog-Imitate/src/pages/About.vue")
@@ -14,7 +14,6 @@ const c13 = () => import(/* webpackChunkName: "page--src--pages--index-vue" */ "
 
 export default [
   {
-    name: 'blogdetail',
     path: "/blog-list/detail/",
     component: c1
   },
@@ -39,15 +38,14 @@ export default [
     component: c6
   },
   {
-    path: "/trends/",
+    path: "/blog/:id/",
     component: c7
   },
   {
-    path: "/readme/",
+    path: "/trends/",
     component: c8
   },
   {
-    name: 'project',
     path: "/project/",
     component: c9
   },
