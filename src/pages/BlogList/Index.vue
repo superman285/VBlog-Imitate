@@ -28,7 +28,7 @@
 
 <page-query>
 	query ($page: Int) {
-	blogs: allStrapiBloglist(perPage: 1, page: $page) @paginate {
+	blogs: allStrapiBloglist(perPage: 2, page: $page) @paginate {
 	pageInfo {
 	totalPages
 	currentPage
